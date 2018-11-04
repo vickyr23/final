@@ -41,7 +41,16 @@ def borrador(request):
     draft = Publicacion.objects.filter(fecha_publicacion__isnull=True).order_by('fecha_creacion')
     return render(request, 'blog/borrador.html', {'draft': draft})
 # Create your views here.
+def publicacion(request, pk):
+    pu = get_object_or_404(Publicacion, pk=pk)
+    pu.publish()
+    return redirect('detalle', pk=pk)
 
 def publish(self):
     self.fecha_publicacion = timezone.now()
     self.save()
+
+def eliminar(request, pk):
+    rv = get_object_or_404(Publicacion, pk=pk)
+    rv.delete()
+    return redirect('/')

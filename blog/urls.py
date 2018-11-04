@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'^post/nuevo/$', views.nuevo, name='nuevo'),
     url(r'^post/(?P<pk>[0-9]+)/edit/$', views.editar, name='editar'),
     url(r'^borrador/$', views.borrador, name='borrador'),
+    url(r'^post/(?P<pk>\d+)/publish/$', views.publicacion, name='publicacion'),
+    url(r'^post/(?P<pk>\d+)/remove/$', views.eliminar, name='eliminar'),
 ]

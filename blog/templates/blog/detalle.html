@@ -7,10 +7,11 @@
       {{ det.fecha_publicacion }}
   </div>
 {% else %}
-  <a class="btn btn-default" href="{% url 'Publicacion' pk=det.pk %}">Publish</a>
+  <a class="btn btn-default" href="{% url 'publicacion' pk=det.pk %}">Publish</a>
 
 {% endif %}
-
+<a class="btn btn-default" href="{% url 'editar' pk=det.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+<a class="btn btn-default" href="{% url 'eliminar' pk=det.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         <h1>{{ det.titulo }}</h1>
         <p>{{ det.texto|linebreaksbr }}</p>
     </div>
